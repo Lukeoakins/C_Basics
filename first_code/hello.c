@@ -7,7 +7,13 @@ int subtract(int a, int b){
 
 
 int main(void) {
-    int c = subtract(5,3);
+    int a = 0;
+    int b = 5;
+    int c = 0;
+    while (a <= b){
+        c = subtract(a,b);
+        a++ ;
+    }
     printf("Number = %d\n", c);
     return 0;
 }
