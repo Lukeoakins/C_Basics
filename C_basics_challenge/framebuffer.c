@@ -2,9 +2,12 @@
 
 void set_pixel(char array[],int width,int height, int x, int y,char character){
     int position = (width * y) + x;
-    if (0<x<width && 0<y<height){
+    if ((0<=x && x<width) && (0<=y && y<height)){
         array[position] = character;
     }
+}
+void set_border(char array[],int width,int height, char character){
+    
 }
 
 int main(void){
