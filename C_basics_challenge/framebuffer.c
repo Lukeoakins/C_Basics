@@ -1,11 +1,8 @@
 #include <stdio.h>
 
-char set_pixel(char array[],int width,int height, int x, int y,char character){
-    int resolution = width * height ;
+char set_pixel(char array[],int width, int x, int y,char character){
     int position = (width * y) + x;
-    for (int i=0;i <resolution; i++){
-        array[position] = character;
-    }
+    array[position] = character;
 }
 
 int main(void){
@@ -17,7 +14,7 @@ int main(void){
         screen[i] = '.';
         
     }
-    set_pixel(screen, width, height, 19, 0, '#');
+    set_pixel(screen, width, 19, 0, '#');
     
     for (int i = 0;i < resolution; i++){
         if ( i % width == width - 1 ){
