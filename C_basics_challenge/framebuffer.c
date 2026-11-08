@@ -9,9 +9,9 @@ void set_pixel(char array[],int width,int height, int x, int y,char character){
 void set_border(char array[], int width, int height,char character){
     for(int x = 0; x<width; x++){  
         for (int y = 0; y<height; y++){
-            if (y == 0 || y == height){
+            if (y == 0 || y == height-1){
                 set_pixel(array,width,height,x,y,character);
-            }else if (x ==0 || x == width){
+            }else if (x ==0 || x == width-1){
                 set_pixel(array,width,height,x,y,character);
             }
             
