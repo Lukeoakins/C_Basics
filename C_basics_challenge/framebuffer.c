@@ -6,13 +6,16 @@
 // }
 
 int main(void){
-    char screen[800] = {'.'};
     int width = 40;
-    int length = sizeof(screen)/ sizeof(screen[0]);
-    for (int i = 0;i < length; i++){
-        if ( i % 40 == 0){   // possibly problem where when i = 0 it does newline
-            printf("%C\n");
+    int height = 20;
+    int resolution = width * height;
+    char screen[resolution] = {};
+    for (int i = 0;i < resolution; i++){
+        screen[i] = '.';
+        if ( i % width == width - 1 ){   // possibly problem where when i = 0 it does newline
+            printf("%c\n",screen[i]);
         } else{
+            printf("%c", screen[i]);
         }
 
     }
