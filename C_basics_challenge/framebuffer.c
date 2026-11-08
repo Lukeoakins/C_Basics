@@ -7,7 +7,14 @@ void set_pixel(char array[],int width,int height, int x, int y,char character){
     }
 }
 void set_border(char array[],int width,int height, char character){
-    
+    int resolution = width * height;
+    for(int i = 0;i<resolution;i++){
+        if (i < width|| i > (resolution-width)){
+            array[i] = character;
+        }else if(i % width == width - 1 || i % width == width){
+            array[i] = character;
+        }
+    }
 }
 
 int main(void){
