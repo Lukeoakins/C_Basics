@@ -6,13 +6,15 @@ void set_pixel(char array[],int width,int height, int x, int y,char character){
         array[position] = character;
     }
 }
-void set_border(char array[],int width,int height, char character){
-    int resolution = width * height;
-    for(int i = 0;i<resolution;i++){
-        if (i < width|| i > (resolution-width)){
-            array[i] = character;
-        }else if(i % width == width - 1 || i % width == width){
-            array[i] = character;
+void set_border(char array[], int width, int height,char character){
+    for(int x = 0; x<width; x++){  
+        for (int y = 0; y<height; y++){
+            if (y == 0 || y == height){
+                set_pixel(array,width,height,x,y,character);
+            }else if (x ==0 || x == width){
+                set_pixel(array,width,height,x,y,character);
+            }
+            
         }
     }
 }
@@ -27,6 +29,7 @@ int main(void){
         
     }
     set_pixel(screen, width, height, 50, 0, '#');
+    set_border(screen,width,height,'o');
     
     for (int i = 0;i < resolution; i++){
         if ( i % width == width - 1 ){
