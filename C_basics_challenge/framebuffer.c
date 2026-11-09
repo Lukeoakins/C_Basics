@@ -7,7 +7,6 @@ void set_pixel(char array[],int width,int height, int x, int y,char character){
     }
 }
 
-
 void create_rectangle(char array[],int width,int height ,int recWidth, int recHeight, int cornerX, int cornerY, char character,bool isFilled){
     for(int x = 0;x<recWidth;x++){
         for(int y = 0; y<recHeight;y++){
@@ -28,8 +27,15 @@ void set_border(char array[], int width, int height,char character){
     create_rectangle(array,width,height,width,height,0,0,character,false);
 }
 
+void create_diagonal(char array[],int width,int height,char character){
+    for(int x = 0;x<width;x++){
+        int y = (height*x)/width;
+        set_pixel(array,width,height,x,y,character);
+    }
+}
+
 int main(void){
-    int width = 40;
+    int width = 80;
     int height = 20;
     int resolution = width * height;
     char screen[resolution] = {};
@@ -38,7 +44,8 @@ int main(void){
         
     }
     set_pixel(screen, width, height, 30, 5, '#');
-    create_rectangle(screen,width,height,30,5,4,4,'/',true);
+    create_rectangle(screen,width,height,30,5,4,4,'M',true);
+    create_diagonal(screen,width,height,'L');
     set_border(screen,width,height,'~');
     
     
