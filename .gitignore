@@ -1,2 +1,6 @@
 *.o
 hello
+max
+countTo10
+first_array
+framebuffer

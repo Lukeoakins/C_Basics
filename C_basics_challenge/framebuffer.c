@@ -41,12 +41,12 @@ void create_diagonal(char array[],int width,int height,int xStart,int yStart, in
 
     if(xWidth>yHeight){
         for(int x = xStart;x<xWidth + xStart;x++){
-            int y = yStart + ((yHeight*x)/xWidth);
+            int y = yStart + ((yHeight*(x-xStart))/xWidth);
             set_pixel(array,width,height,x,y,character);
         }
     }else{
         for(int y= yStart;y<yHeight + yStart;y++){
-            int x = xStart +((xWidth*y)/yHeight);
+            int x = xStart +((xWidth*(y-yStart))/yHeight);
             set_pixel(array,width,height,x,y,character);
         }
     }
