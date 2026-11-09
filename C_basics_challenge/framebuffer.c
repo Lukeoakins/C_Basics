@@ -28,15 +28,22 @@ void set_border(char array[], int width, int height,char character){
 }
 
 void create_diagonal(char array[],int width,int height,char character){
-    for(int x = 0;x<width;x++){
-        int y = (height*x)/width;
-        set_pixel(array,width,height,x,y,character);
+    if(width>height){
+        for(int x = 0;x<width;x++){
+            int y = (height*x)/width;
+            set_pixel(array,width,height,x,y,character);
+        }
+    }else{
+        for(int y= 0;y<height;y++){
+            int x = (width*y)/height;
+            set_pixel(array,width,height,x,y,character);
+        }
     }
 }
 
 int main(void){
-    int width = 80;
-    int height = 20;
+    int width = 40;
+    int height = 60;
     int resolution = width * height;
     char screen[resolution] = {};
     for (int i = 0;i < resolution; i++){
