@@ -6,26 +6,26 @@ void set_pixel(char array[],int width,int height, int x, int y,char character){
         array[position] = character;
     }
 }
-void set_border(char array[], int width, int height,char character){
-    for(int x = 0; x<width; x++){  
-        for (int y = 0; y<height; y++){
-            if (y == 0 || y == height-1){
-                set_pixel(array,width,height,x,y,character);
-            }else if (x ==0 || x == width-1){
-                set_pixel(array,width,height,x,y,character);
-            }
-            
-        }
-    }
-}
-void create_rectangle(char array[],int width,int height ,int recWidth, int recHeight, int cornerX, int cornerY, char character){
+
+
+void create_rectangle(char array[],int width,int height ,int recWidth, int recHeight, int cornerX, int cornerY, char character,bool isFilled){
     for(int x = 0;x<recWidth;x++){
         for(int y = 0; y<recHeight;y++){
             int currentX = cornerX + x;
             int currentY = cornerY + y;
+            if (isFilled){
             set_pixel(array,width,height,currentX,currentY,character);
+            } else{
+                if((y == 0 || y == recHeight - 1)||(x == 0 || x == recWidth - 1)){
+                    set_pixel(array,width,height,currentX,currentY,character);
+                }
+            }
+
         }
     }
+}
+void set_border(char array[], int width, int height,char character){
+    create_rectangle(array,width,height,width,height,0,0,character,false);
 }
 
 int main(void){
@@ -38,7 +38,7 @@ int main(void){
         
     }
     set_pixel(screen, width, height, 30, 5, '#');
-    create_rectangle(screen,width,height,50,5,4,4,'/');
+    create_rectangle(screen,width,height,30,5,4,4,'/',true);
     set_border(screen,width,height,'~');
     
     
